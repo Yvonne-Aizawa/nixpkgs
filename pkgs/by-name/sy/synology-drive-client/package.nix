@@ -8,6 +8,7 @@
   dpkg,
   glibc,
   cpio,
+  nautilus,
   xar,
   undmg,
   gtk3,
@@ -17,7 +18,7 @@
 let
   pname = "synology-drive-client";
   baseUrl = "https://global.synologydownload.com/download/Utility/SynologyDriveClient";
-  version = "3.5.1-16101";
+  version = "4.0.0-17591";
   buildNumber = lib.last (lib.splitString "-" version);
   meta = with lib; {
     description = "Desktop application to synchronize files and folders between the computer and the Synology Drive server";
@@ -27,6 +28,7 @@ let
     maintainers = with maintainers; [
       jcouyang
       MoritzBoehme
+      YvonneAizawa
     ];
     platforms = [
       "x86_64-linux"
@@ -57,13 +59,15 @@ let
 
     src = fetchurl {
       url = "${baseUrl}/${version}/Ubuntu/Installer/synology-drive-client-${buildNumber}.x86_64.deb";
-      sha256 = "sha256-VeS5bPcMM4JDCSH5GXkl4OgQjrPKaNDh5PfX28/zqaU=";
+      sha256 = "sha256-i8T8sd+wyhiOscnWD+r2TTQOQ3kHoSVHoCkm95SKNlI=";
     };
 
     nativeBuildInputs = [
       qt5.wrapQtAppsHook
       autoPatchelfHook
       dpkg
+      qt5.qtwebengine
+      nautilus
     ];
 
     buildInputs = [
@@ -101,7 +105,7 @@ let
 
     src = fetchurl {
       url = "${baseUrl}/${version}/Mac/Installer/synology-drive-client-${buildNumber}.dmg";
-      sha256 = "sha256-VyhROpQCeVHNxxYgPUZdAlng15aJ1/IYadz30FThlsw=";
+      sha256 = "sha256-tEQUHLBFZ0oN1NUyf7vh70GBYe+rZP9M9LL1GNAS6KQ=";
     };
 
     nativeBuildInputs = [

@@ -28744,6 +28744,11 @@
     githubId = 65394961;
     name = "Yves Straten";
   };
+  YvonneAizawa = {
+    name = "YvonneAizawa";
+    github = "Yvonne-Aizawa";
+    githubId = 106619470;
+  };
   yzx9 = {
     email = "yuan.zx@outlook.com";
     github = "yzx9";
